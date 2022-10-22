@@ -1,5 +1,5 @@
 import React, { useContext,useState,useEffect } from 'react'
-// import Context from '../../Context/index'
+import Context from '../../Context/index'
 import "./loginStore.css"
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
@@ -15,7 +15,7 @@ const LoginStore = () => {
         M.AutoInit();
       }, [])
     
-    // const context = useContext(Context)
+    const context = useContext(Context)
     const history = useHistory()
     const navigateTo = (path) => {
         history.push(path);
@@ -103,7 +103,7 @@ const LoginStore = () => {
 
             if(usuarioLoged.email === mapeoEmail.email && usuarioLoged.password === mapeoEmail.password 
                 && usuarioLoged.email !=="" && usuarioLoged.password !== ""){
-                    // context.addUsers({email:usuarioLoged.email, password:usuarioLoged.password})
+                    context.addUsers({email:usuarioLoged.email, password:usuarioLoged.password})
                     navigateTo( "/store" )
                 } else {
                     alert("user or password incorrect");
